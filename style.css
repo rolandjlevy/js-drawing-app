@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  background-color: #333;
+}
+
+canvas {
+  --width: 560;
+  --height: 360;
+  border: 5px solid #aaa;
+  width: var(--width);
+  height: var(--height);
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
