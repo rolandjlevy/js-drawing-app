@@ -1,9 +1,10 @@
 body {
   margin: 0;
   background-color: #333;
+  /* cursor: none; */
 }
 
-canvas {
+canvas#art-board {
   --width: 560;
   --height: 360;
   border: 5px solid #aaa;
@@ -18,5 +19,12 @@ canvas {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  position: relative;
 }
 
+.cursor {
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: none;
+  position: absolute;
+}
