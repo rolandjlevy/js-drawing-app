@@ -1,7 +1,6 @@
 body {
   margin: 0;
   background-color: #333;
-  /* cursor: none; */
 }
 
 canvas#art-board {
@@ -13,18 +12,21 @@ canvas#art-board {
   background-color: #fff;
 }
 
+.brush-cursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23FF0000" height="48" viewBox="0 0 24 24" width="48"><circle cx="11" cy="11" r="10" stroke="black" stroke-width="1" fill="none" /></svg>'), auto;
+}
+
+canvas#art-board:focus {
+  outline: none;
+}
+
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  position: relative;
 }
 
 .cursor {
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: none;
-  position: absolute;
 }

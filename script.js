@@ -4,9 +4,9 @@ let brushSize = 20;
 let x = 0;
 let y = 0;
 
-const cursor = document.querySelector('.cursor');
-cursor.style.width = `${brushSize * 2}px`;
-cursor.style.height = `${brushSize * 2}px`;
+// const cursor = document.querySelector('.cursor');
+// cursor.style.width = `${brushSize * 2}px`;
+// cursor.style.height = `${brushSize * 2}px`;
 
 const canvas = document.getElementById('art-board');
 canvas.width = getComputedStyle(canvas).getPropertyValue('--width');
@@ -19,17 +19,17 @@ const context = canvas.getContext('2d');
 
 // Add the event listeners for mousedown, mousemove, and mouseup
 canvas.addEventListener('mousedown', e => {
+  x = e.offsetX + brushSize;
+  y = e.offsetY + brushSize;
   drawCircle(context, x, y, e.offsetX, e.offsetY);
-  x = e.offsetX;
-  y = e.offsetY;
   isDrawing = true;
 });
 
 canvas.addEventListener('mousemove', e => {
   if (isDrawing) {
     drawCircle(context, x, y, e.offsetX, e.offsetY);
-    x = e.offsetX;
-    y = e.offsetY;
+    x = e.offsetX + brushSize;
+    y = e.offsetY + brushSize;
   }
   // cursor.style.left = `${e.clientX - brushSize/2}px`;
   // cursor.style.top = `${e.clientY - brushSize/2}px`;
@@ -58,9 +58,9 @@ canvas.addEventListener('keyup', e => {
 
 function drawCircle(context, x1, y1, x2, y2) {
   context.strokeStyle = 'black';
-  context.globalAlpha = 0.3;
+  context.globalAlpha = 0.1;
   context.beginPath();
-  context.arc(x2, y2, brushSize, 0, 2 * Math.PI);
+  context.arc(x1, y1, brushSize, 0, 2 * Math.PI);
   context.fill();
   context.closePath();
 }
