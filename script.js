@@ -1,12 +1,23 @@
-// When true, moving the mouse draws on the canvas
+
 let isDrawing = false;
 let brushSize = 20;
 let x = 0;
 let y = 0;
+let colour = 'black';
 
-// const cursor = document.querySelector('.cursor');
-// cursor.style.width = `${brushSize * 2}px`;
-// cursor.style.height = `${brushSize * 2}px`;
+const colours = ["purple", "red", "orange", "yellow", "greenyellow", "green", "turquoise", "blue"];
+
+const coloursList = document.querySelector('ul.colours');
+
+colours.forEach(col => {
+  const li = document.createElement('li');
+  li.classList.add(col);
+  li.style.background = col;
+  coloursList.appendChild(li);
+  li.addEventListener('click', e => {
+    colour = e.target.classList.value;
+  });
+});
 
 const canvas = document.getElementById('art-board');
 canvas.width = getComputedStyle(canvas).getPropertyValue('--width');
@@ -15,9 +26,8 @@ canvas.focus();
 
 const context = canvas.getContext('2d');
 
-// event.offsetX, event.offsetY gives the (x,y) offset from the edge of the canvas.
+// e.offsetX, e.offsetY gives (x,y) offset from edge of canvas
 
-// Add the event listeners for mousedown, mousemove, and mouseup
 canvas.addEventListener('mousedown', e => {
   x = e.offsetX + brushSize;
   y = e.offsetY + brushSize;
@@ -31,8 +41,6 @@ canvas.addEventListener('mousemove', e => {
     x = e.offsetX + brushSize;
     y = e.offsetY + brushSize;
   }
-  // cursor.style.left = `${e.clientX - brushSize/2}px`;
-  // cursor.style.top = `${e.clientY - brushSize/2}px`;
 });
 
 canvas.addEventListener('mouseup', e => {
@@ -57,7 +65,8 @@ canvas.addEventListener('keyup', e => {
 });
 
 function drawCircle(context, x1, y1, x2, y2) {
-  context.strokeStyle = 'black';
+  console.log({colour})
+  context.fillStyle = colour;
   context.globalAlpha = 0.1;
   context.beginPath();
   context.arc(x1, y1, brushSize, 0, 2 * Math.PI);
@@ -67,7 +76,7 @@ function drawCircle(context, x1, y1, x2, y2) {
 
 function drawLine(context, x1, y1, x2, y2) {
   context.beginPath();
-  context.strokeStyle = 'black';
+  context.strokeStyle = colour;
   context.lineWidth = 1;
   context.moveTo(x1, y1);
   context.lineTo(x2, y2);

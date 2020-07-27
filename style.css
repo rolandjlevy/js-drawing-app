@@ -13,7 +13,7 @@ canvas#art-board {
 }
 
 .brush-cursor {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23FF0000" height="48" viewBox="0 0 24 24" width="48"><circle cx="11" cy="11" r="10" stroke="black" stroke-width="1" fill="none" /></svg>'), auto;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 0 24 24" width="48"><circle cx="11" cy="11" r="10" stroke="black" stroke-width="0.5" fill="none" /></svg>'), auto;
 }
 
 canvas#art-board:focus {
@@ -28,5 +28,54 @@ canvas#art-board:focus {
   height: 100vh;
 }
 
-.cursor {
+ul.colours {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  padding: 0;
+}
+
+ul.colours > li {
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  margin: 0 3px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+ul.colours > li:hover {
+  opacity: 1;
+}
+
+li[data-colour="purple"] {
+  background: purple;
+}
+
+li[data-colour="red"] {
+  background: red;
+}
+
+li[data-colour="orange"] {
+  background: orange;
+}
+
+li[data-colour="yellow"] {
+  background: yellow;
+}
+
+li[data-colour="greenyellow"] {
+  background: greenyellow;
+}
+
+li[data-colour="green"] {
+  background: green;
+}
+
+li[data-colour="turquoise"] {
+  background: turquoise;
+}
+
+li[data-colour="blue"] {
+  background: blue;
 }
