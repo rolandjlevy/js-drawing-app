@@ -6,7 +6,7 @@ let x = 0;
 let y = 0;
 let colour = 'black';
 
-const colours = ["white", "grey", "black", "red", "orange", "yellow", "greenyellow", "green", "turquoise", "blue"];
+const colours = ["white", "grey", "black", "purple", "red", "orange", "yellow", "greenyellow", "green", "turquoise", "blue"];
 
 const coloursList = document.querySelector('ul.colours');
 
@@ -27,30 +27,42 @@ canvas.focus();
 
 const context = canvas.getContext('2d');
 
-// e.offsetX, e.offsetY gives (x,y) offset from edge of canvas
+function getOffsetXY(evt) {
+  const e = evt.touches ? evt.touches[0] : evt;
+  const x = evt.touches ? e.clientX - e.target.offsetLeft : e.offsetX;
+  const y = evt.touches ? e.clientY - e.target.offsetTop : e.offsetY;
+  return {x, y};
+}
 
-canvas.addEventListener('mousedown', e => {
-  x = e.offsetX + brushSize;
-  y = e.offsetY + brushSize;
-  drawCircle(context, x, y, e.offsetX, e.offsetY);
-  isDrawing = true;
+['mousedown', 'touchstart'].forEach(event => {
+  canvas.addEventListener(event, evt => {
+    const offset = getOffsetXY(evt);
+    x = offset.x + brushSize;
+    y = offset.y + brushSize;
+    drawCircle(context, x, y, offset.x + brushSize, offset.y + brushSize);
+    isDrawing = true;
+  });
 });
 
-canvas.addEventListener('mousemove', e => {
-  if (isDrawing) {
-    drawCircle(context, x, y, e.offsetX, e.offsetY);
-    x = e.offsetX + brushSize;
-    y = e.offsetY + brushSize;
-  }
+['mousemove', 'touchmove'].forEach(event => {
+  canvas.addEventListener(event, evt => {
+    if (isDrawing) {
+      const offset = getOffsetXY(evt);
+      drawCircle(context, x, y, offset.x + brushSize, offset.y + brushSize);
+      x = offset.x + brushSize;
+      y = offset.y + brushSize;
+    }
+  });
 });
 
-canvas.addEventListener('mouseup', e => {
-  if (isDrawing) {
-    drawCircle(context, x, y, e.offsetX, e.offsetY);
-    x = 0;
-    y = 0;
-    isDrawing = false;
-  }
+['mouseup', 'touchend'].forEach(event => {
+  canvas.addEventListener(event, evt => {
+    if (isDrawing) {
+      x = 0;
+      y = 0;
+      isDrawing = false;
+    }
+  });
 });
 
 canvas.addEventListener('keyup', e => {
@@ -67,7 +79,7 @@ canvas.addEventListener('keyup', e => {
 
 function drawCircle(context, x1, y1, x2, y2) {
   context.fillStyle = colour;
-  context.globalAlpha = 0.025;
+  context.globalAlpha = 0.25;
   context.beginPath();
   context.filter = `blur(${blur}px)`;
   context.arc(x1, y1, brushSize, 0, 2 * Math.PI);
