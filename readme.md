@@ -1,4 +1,4 @@
-# Drawing on Canvas
+# Painting with Canvas
 
 ### Links
 

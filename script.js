@@ -1,11 +1,12 @@
 
 let isDrawing = false;
 let brushSize = 20;
+let blur = 5;
 let x = 0;
 let y = 0;
 let colour = 'black';
 
-const colours = ["purple", "red", "orange", "yellow", "greenyellow", "green", "turquoise", "blue"];
+const colours = ["white", "grey", "black", "red", "orange", "yellow", "greenyellow", "green", "turquoise", "blue"];
 
 const coloursList = document.querySelector('ul.colours');
 
@@ -65,10 +66,10 @@ canvas.addEventListener('keyup', e => {
 });
 
 function drawCircle(context, x1, y1, x2, y2) {
-  console.log({colour})
   context.fillStyle = colour;
-  context.globalAlpha = 0.1;
+  context.globalAlpha = 0.025;
   context.beginPath();
+  context.filter = `blur(${blur}px)`;
   context.arc(x1, y1, brushSize, 0, 2 * Math.PI);
   context.fill();
   context.closePath();
