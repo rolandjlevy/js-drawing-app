@@ -37,9 +37,9 @@ function getOffsetXY(evt) {
 ['mousedown', 'touchstart'].forEach(event => {
   canvas.addEventListener(event, evt => {
     const offset = getOffsetXY(evt);
-    x = offset.x + brushSize;
-    y = offset.y + brushSize;
-    drawCircle(context, x, y, offset.x + brushSize, offset.y + brushSize);
+    x = offset.x;
+    y = offset.y;
+    drawCircle(context, x, y, offset.x, offset.y);
     isDrawing = true;
   });
 });
@@ -48,9 +48,9 @@ function getOffsetXY(evt) {
   canvas.addEventListener(event, evt => {
     if (isDrawing) {
       const offset = getOffsetXY(evt);
-      drawCircle(context, x, y, offset.x + brushSize, offset.y + brushSize);
-      x = offset.x + brushSize;
-      y = offset.y + brushSize;
+      drawCircle(context, x, y, offset.x, offset.y);
+      x = offset.x;
+      y = offset.y;
     }
   });
 });
@@ -84,15 +84,5 @@ function drawCircle(context, x1, y1, x2, y2) {
   context.filter = `blur(${blur}px)`;
   context.arc(x1, y1, brushSize, 0, 2 * Math.PI);
   context.fill();
-  context.closePath();
-}
-
-function drawLine(context, x1, y1, x2, y2) {
-  context.beginPath();
-  context.strokeStyle = colour;
-  context.lineWidth = 1;
-  context.moveTo(x1, y1);
-  context.lineTo(x2, y2);
-  context.stroke();
   context.closePath();
 }
