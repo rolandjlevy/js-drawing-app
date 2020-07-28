@@ -26,4 +26,4 @@ canvas.focus();
 
 const paint = new Paint({canvas, brushSize: 20, blur: 5});
 
-// const input = new Input();
+const input = new Input({canvas, brushSize: 20, blur: 5});

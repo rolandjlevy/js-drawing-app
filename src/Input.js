@@ -1,6 +1,6 @@
 class Input extends Paint {
-  constructor() {
-    super();
-    console.log(this.isDrawing);
+  constructor({canvas, brushSize, blur}) {
+    super({canvas, brushSize, blur});
+    console.log(this);
   }
 }
