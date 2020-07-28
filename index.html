@@ -10,6 +10,19 @@
     <main class="container">
       <canvas id="art-board" class="brush-cursor" tabindex="1"></canvas>
       <ul class="colours"></ul>
+
+      <section class="brushes">
+        <label><strong>BRUSH SIZE: </strong></label>
+        <label for="brush-10">Small</label>
+        <input type="radio" id="brush-10" name="brushsize" value="10" onclick="setBrushSize(10)" />
+        <label for="brush-20">Medium</label>
+        <input type="radio" id="brush-20" name="brushsize" value="20" onclick="setBrushSize(20)" checked />
+        <label for="brush-40">Large</label>
+        <input type="radio" id="brush-40" name="brushsize" value="40" onclick="setBrushSize(40)" />
+        <label for="brush-60">Extra large</label>
+        <input type="radio" id="brush-60" name="brushsize" value="60" onclick="setBrushSize(60)" />
+      </section>
+
     </main>
     <script src="script.js"></script>
   </body>

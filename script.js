@@ -1,9 +1,9 @@
+// document.addEventListener('DOMContentLoaded', (e) => {
 
-let isDrawing = false;
-let brushSize = 20;
-let blur = 5;
-let x = 0;
-let y = 0;
+/////////////////////
+// Colour swatches //
+/////////////////////
+
 let colour = 'black';
 
 const colours = ["white", "grey", "black", "purple", "red", "orange", "yellow", "greenyellow", "green", "turquoise", "blue"];
@@ -20,12 +20,40 @@ colours.forEach(col => {
   });
 });
 
-const canvas = document.getElementById('art-board');
+////////////
+// Canvas //
+////////////
+
+const canvas = document.querySelector('#art-board');
 canvas.width = getComputedStyle(canvas).getPropertyValue('--width');
 canvas.height = getComputedStyle(canvas).getPropertyValue('--height');
 canvas.focus();
 
 const context = canvas.getContext('2d');
+
+////////////
+// Brush  //
+////////////
+
+let brushSize = 20;
+
+const brushCursor = document.querySelector('.brush-cursor');
+brushCursor.classList.add(`cursor-size-${brushSize}`);
+
+function setBrushSize(n) {
+  brushSize = n;
+  brushCursor.classList = ['brush-cursor'];
+  brushCursor.classList.add(`cursor-size-${n}`);
+}
+
+/////////////
+// Events  //
+/////////////
+
+let isDrawing = false;
+let blur = 5;
+let x = 0;
+let y = 0;
 
 function getOffsetXY(evt) {
   const e = evt.touches ? evt.touches[0] : evt;
@@ -33,7 +61,6 @@ function getOffsetXY(evt) {
   const y = evt.touches ? e.clientY - e.target.offsetTop : e.offsetY;
   return {x, y};
 }
-
 ['mousedown', 'touchstart'].forEach(event => {
   canvas.addEventListener(event, evt => {
     const offset = getOffsetXY(evt);
@@ -65,24 +92,26 @@ function getOffsetXY(evt) {
   });
 });
 
-canvas.addEventListener('keyup', e => {
-  if (e.keyCode == 188 && brushSize > 0) {
-    brushSize--;
-    cursor.style.width = `${brushSize * 2}px`;
-    cursor.style.height = `${brushSize * 2}px`;
-  } else if (e.keyCode == 190) {
-    brushSize++;
-    cursor.style.width = `${brushSize * 2}px`;
-    cursor.style.height = `${brushSize * 2}px`;
-  }
-});
+// canvas.addEventListener('keyup', e => {
+//   if (e.keyCode == 188 && brushSize > 0) {
+//     brushSize--;
+//     cursor.style.width = `${brushSize * 2}px`;
+//     cursor.style.height = `${brushSize * 2}px`;
+//   } else if (e.keyCode == 190) {
+//     brushSize++;
+//     cursor.style.width = `${brushSize * 2}px`;
+//     cursor.style.height = `${brushSize * 2}px`;
+//   }
+// });
 
 function drawCircle(context, x1, y1, x2, y2) {
   context.fillStyle = colour;
-  context.globalAlpha = 0.25;
+  context.globalAlpha = 0.05;
   context.beginPath();
   context.filter = `blur(${blur}px)`;
   context.arc(x1, y1, brushSize, 0, 2 * Math.PI);
   context.fill();
   context.closePath();
-}
+}  
+
+// });

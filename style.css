@@ -12,8 +12,39 @@ canvas#art-board {
   background-color: #fff;
 }
 
-.brush-cursor {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 0 24 24" width="48"><circle cx="11" cy="11" r="10" stroke="black" stroke-width="0.5" fill="none" /></svg>') 20 20, auto;
+.brushes {
+  display: flex;
+  flex-direction: row;
+}
+
+.brushes input[type="radio"] {
+  color: #fff;
+}
+
+.brushes label {
+  margin-left: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cursor-size-10 {
+  --size: 10;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" stroke="black" stroke-width="0.5" fill="none" /></svg>') var(--size) var(--size), auto;
+}
+
+.cursor-size-20 {
+  --size: 20;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="44" width="44" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" stroke="black" stroke-width="0.5" fill="none" /></svg>') var(--size) var(--size), auto;
+}
+
+.cursor-size-40 {
+  --size: 40;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="84" width="84" viewBox="0 0 42 42"><circle cx="21" cy="21" r="20" stroke="black" stroke-width="0.5" fill="none" /></svg>') var(--size) var(--size), auto;
+}
+
+.cursor-size-60 {
+  --size: 60;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="124" width="124" viewBox="0 0 62 62"><circle cx="31" cy="31" r="30" stroke="black" stroke-width="0.5" fill="none" /></svg>') var(--size) var(--size), auto;
 }
 
 canvas#art-board:focus {
@@ -46,36 +77,4 @@ ul.colours > li {
 
 ul.colours > li:hover {
   opacity: 1;
-}
-
-li[data-colour="purple"] {
-  background: purple;
-}
-
-li[data-colour="red"] {
-  background: red;
-}
-
-li[data-colour="orange"] {
-  background: orange;
-}
-
-li[data-colour="yellow"] {
-  background: yellow;
-}
-
-li[data-colour="greenyellow"] {
-  background: greenyellow;
-}
-
-li[data-colour="green"] {
-  background: green;
-}
-
-li[data-colour="turquoise"] {
-  background: turquoise;
-}
-
-li[data-colour="blue"] {
-  background: blue;
 }
