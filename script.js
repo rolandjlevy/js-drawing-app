@@ -1,3 +1,4 @@
+
 /////////////////////
 // Colour swatches //
 /////////////////////
@@ -18,17 +19,11 @@ colours.forEach(col => {
   });
 });
 
-////////////
-// Canvas //
-////////////
-
 const canvas = document.querySelector('#art-board');
 canvas.width = getComputedStyle(canvas).getPropertyValue('--width');
 canvas.height = getComputedStyle(canvas).getPropertyValue('--height');
 canvas.focus();
 
-///////////////////
-// Paint Object  //
-///////////////////
-
 const paint = new Paint({canvas, brushSize: 20, blur: 5});
+
+// const input = new Input();

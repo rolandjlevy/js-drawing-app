@@ -1,6 +1,7 @@
 class Paint {
   constructor({canvas, brushSize, blur}) {
-    this.context = canvas.getContext('2d');
+    this.canvas = canvas;
+    this.context = this.canvas.getContext('2d');
     this.brushCursor = document.querySelector('.brush-cursor');
     this.brushSize = brushSize;
     this.blur = blur;
@@ -8,9 +9,9 @@ class Paint {
     this.x = 0;
     this.y = 0;
     this.setBrushSize(brushSize);
-    
+
     ['mousedown', 'touchstart'].forEach(event => {
-      canvas.addEventListener(event, evt => {
+      this.canvas.addEventListener(event, evt => {
         const offset = this.getOffsetXY(evt);
         this.x = offset.x;
         this.y = offset.y;
@@ -20,7 +21,7 @@ class Paint {
     });
 
     ['mousemove', 'touchmove'].forEach(event => {
-      canvas.addEventListener(event, evt => {
+      this.canvas.addEventListener(event, evt => {
         if (this.isDrawing) {
           const offset = this.getOffsetXY(evt);
           this.drawCircle(this.x, this.y, offset.x, offset.y);
@@ -31,7 +32,7 @@ class Paint {
     });
 
     ['mouseup', 'touchend'].forEach(event => {
-      canvas.addEventListener(event, evt => {
+      this.canvas.addEventListener(event, evt => {
         if (this.isDrawing) {
           this.x = 0;
           this.y = 0;
