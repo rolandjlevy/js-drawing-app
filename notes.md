@@ -6,6 +6,7 @@
 + make an HTML slider for opacity
 + make an HTML slider for blurring
 + add a clear canvas button
++ extend Brush and Input from Paint object
 
 ### Done
 + add [touch events](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_touchmove2) so it's mobile friendly: 
