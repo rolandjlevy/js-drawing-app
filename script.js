@@ -20,16 +20,14 @@ colours.forEach(col => {
 });
 
 const artBoard = new ArtBoard();
-
 const brush = new Brush({size:20});
-
 const opacity = new Opacity({value:50});
+const blurer = new Blur({value:10});
 
 const paint = new Paint({
   canvas: artBoard.canvas, 
   brush,
   opacity,
-  blur: 5
+  blurer
 });
 
-// const input = new Input({canvas, brushSize: 20, blur: 5});

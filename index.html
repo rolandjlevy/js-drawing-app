@@ -23,15 +23,21 @@
         <input type="radio" id="brush-60" name="brushsize" value="60" onclick="brush.setSize(60)" />
       </section>
 
-      <section class="opacity m-b-20">
-        <label class="control" for="opacity">OPACITY</label>
-        <input type="range" id="opacity-range" name="opacity" min="5" max="100" value="50" step="1" oninput="opacity.setValue(this.value)" onchange="opacity.setValue(this.value)" >
+      <section class="m-b-20">
+        <label class="control" for="opacity-range">OPACITY</label>
+        <input type="range" id="opacity-range" name="opacity-control" min="5" max="100" value="50" step="1" oninput="opacity.setValue(this.value)" onchange="opacity.setValue(this.value)" >
+      </section>
+
+      <section class="m-b-20">
+        <label class="control" for="blur-range">BLUR</label>
+        <input type="range" id="blur-range" name="blur-control" min="0" max="10" value="5" step="1" oninput="blurer.setValue(this.value)" onchange="blurer.setValue(this.value)" >
       </section>
 
     </main>
     <script src="/src/ArtBoard.js"></script>
     <script src="/src/Brush.js"></script>
     <script src="/src/Opacity.js"></script>
+    <script src="/src/Blur.js"></script>
     <script src="/src/Paint.js"></script>
     <script src="/src/Input.js"></script>
     <script src="script.js"></script>

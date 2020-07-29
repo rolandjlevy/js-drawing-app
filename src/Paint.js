@@ -1,10 +1,10 @@
 class Paint {
-  constructor({canvas, brush, opacity, blur}) {
+  constructor({canvas, brush, opacity, blurer}) {
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
-    this.opacity = opacity;
-    this.blur = blur;
     this.brush = brush;
+    this.opacity = opacity;
+    this.blur = blurer;
     this.isDrawing = false;
     this.x = 0;
     this.y = 0;
@@ -50,7 +50,7 @@ class Paint {
     this.context.fillStyle = colour;
     this.context.globalAlpha = this.opacity.value;
     this.context.beginPath();
-    this.context.filter = `blur(${this.blur}px)`;
+    this.context.filter = `blur(${this.blur.value}px)`;
     this.context.arc(x1, y1, this.brush.size, 0, 2 * Math.PI);
     this.context.fill();
     this.context.closePath();
