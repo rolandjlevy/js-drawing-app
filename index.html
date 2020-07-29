@@ -14,21 +14,24 @@
       <section class="brushes m-b-20">
         <label class="control">BRUSH SIZE:</label>
         <label for="brush-10">Small</label>
-        <input type="radio" id="brush-10" name="brushsize" value="10" onclick="paint.setBrushSize(10)" />
+        <input type="radio" id="brush-10" name="brushsize" value="10" onclick="brush.setSize(10)" />
         <label for="brush-20">Medium</label>
-        <input type="radio" id="brush-20" name="brushsize" value="20" onclick="paint.setBrushSize(20)" checked />
+        <input type="radio" id="brush-20" name="brushsize" value="20" onclick="brush.setSize(20)" checked />
         <label for="brush-40">Large</label>
-        <input type="radio" id="brush-40" name="brushsize" value="40" onclick="paint.setBrushSize(40)" />
+        <input type="radio" id="brush-40" name="brushsize" value="40" onclick="brush.setSize(40)" />
         <label for="brush-60">Extra large</label>
-        <input type="radio" id="brush-60" name="brushsize" value="60" onclick="paint.setBrushSize(60)" />
+        <input type="radio" id="brush-60" name="brushsize" value="60" onclick="brush.setSize(60)" />
       </section>
 
       <section class="opacity m-b-20">
         <label class="control" for="opacity">OPACITY</label>
-        <input type="range" id="opacity-range" name="opacity" min="0" max="100" value="10" step="10" oninput="paint.setOpacity(this.value)" onchange="paint.setOpacity(this.value)" >
+        <input type="range" id="opacity-range" name="opacity" min="5" max="100" value="50" step="1" oninput="opacity.setValue(this.value)" onchange="opacity.setValue(this.value)" >
       </section>
 
     </main>
+    <script src="/src/ArtBoard.js"></script>
+    <script src="/src/Brush.js"></script>
+    <script src="/src/Opacity.js"></script>
     <script src="/src/Paint.js"></script>
     <script src="/src/Input.js"></script>
     <script src="script.js"></script>

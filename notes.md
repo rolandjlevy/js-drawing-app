@@ -3,7 +3,6 @@
 
 ### Improvements
 + make the swatches radio buttons so they have an on/off state
-+ make an HTML slider for opacity
 + make an HTML slider for blurring
 + add a clear canvas button
 + extend Brush and Input from Paint object
@@ -12,6 +11,7 @@
 + add [touch events](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_touchmove2) so it's mobile friendly: 
 + have preset brush sizes 
 + adjust the origin of the brush cursor
++ make an HTML slider for opacity
 
 ### Youtube tutorials
 + [Adam Khoury](https://www.youtube.com/watch?v=n-AuSopUl6s)

@@ -19,11 +19,17 @@ colours.forEach(col => {
   });
 });
 
-const canvas = document.querySelector('#art-board');
-canvas.width = getComputedStyle(canvas).getPropertyValue('--width');
-canvas.height = getComputedStyle(canvas).getPropertyValue('--height');
-canvas.focus();
+const artBoard = new ArtBoard();
 
-const paint = new Paint({canvas, brushSize: 20, opacity: 10, blur: 5});
+const brush = new Brush({size:20});
+
+const opacity = new Opacity({value:50});
+
+const paint = new Paint({
+  canvas: artBoard.canvas, 
+  brush,
+  opacity,
+  blur: 5
+});
 
 // const input = new Input({canvas, brushSize: 20, blur: 5});

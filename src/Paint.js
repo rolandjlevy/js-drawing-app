@@ -1,23 +1,20 @@
 class Paint {
-  constructor({canvas, brushSize, opacity, blur}) {
+  constructor({canvas, brush, opacity, blur}) {
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
-    this.brushCursor = document.querySelector('.brush-cursor');
-    this.brushSize = brushSize;
     this.opacity = opacity;
     this.blur = blur;
+    this.brush = brush;
     this.isDrawing = false;
     this.x = 0;
     this.y = 0;
-    this.setBrushSize(brushSize);
-    this.setOpacity(opacity);
 
     ['mousedown', 'touchstart'].forEach(event => {
       this.canvas.addEventListener(event, evt => {
         const offset = this.getOffsetXY(evt);
         this.x = offset.x;
         this.y = offset.y;
-        this.drawCircle(this.x, this.y, offset.x, offset.y);
+        this.drawCircle(this.x, this.y);
         this.isDrawing = true;
       });
     });
@@ -26,9 +23,9 @@ class Paint {
       this.canvas.addEventListener(event, evt => {
         if (this.isDrawing) {
           const offset = this.getOffsetXY(evt);
-          this.drawCircle(this.x, this.y, offset.x, offset.y);
           this.x = offset.x;
           this.y = offset.y;
+          this.drawCircle(this.x, this.y);
         }
       });
     });
@@ -49,21 +46,13 @@ class Paint {
     const y = evt.touches ? e.clientY - e.target.offsetTop : e.offsetY;
     return {x, y};
   }
-  drawCircle(x1, y1, x2, y2) {
+  drawCircle(x1, y1) {
     this.context.fillStyle = colour;
-    this.context.globalAlpha = this.opacity;
+    this.context.globalAlpha = this.opacity.value;
     this.context.beginPath();
     this.context.filter = `blur(${this.blur}px)`;
-    this.context.arc(x1, y1, this.brushSize, 0, 2 * Math.PI);
+    this.context.arc(x1, y1, this.brush.size, 0, 2 * Math.PI);
     this.context.fill();
     this.context.closePath();
-  }
-  setBrushSize(n) {
-    this.brushSize = n;
-    this.brushCursor.classList = ['brush-cursor'];
-    this.brushCursor.classList.add(`cursor-size-${n}`);
-  }
-  setOpacity(n) {
-    this.opacity = n / 250;
   }
 }
