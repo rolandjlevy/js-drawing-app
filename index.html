@@ -9,10 +9,10 @@
   <body>
     <main class="container">
       <canvas id="art-board" class="brush-cursor" tabindex="1"></canvas>
-      <ul class="colours"></ul>
+      <ul class="colours m-tb-20"></ul>
 
-      <section class="brushes">
-        <label><strong>BRUSH SIZE: </strong></label>
+      <section class="brushes m-b-20">
+        <label class="control">BRUSH SIZE:</label>
         <label for="brush-10">Small</label>
         <input type="radio" id="brush-10" name="brushsize" value="10" onclick="paint.setBrushSize(10)" />
         <label for="brush-20">Medium</label>
@@ -21,6 +21,11 @@
         <input type="radio" id="brush-40" name="brushsize" value="40" onclick="paint.setBrushSize(40)" />
         <label for="brush-60">Extra large</label>
         <input type="radio" id="brush-60" name="brushsize" value="60" onclick="paint.setBrushSize(60)" />
+      </section>
+
+      <section class="opacity m-b-20">
+        <label class="control" for="opacity">OPACITY</label>
+        <input type="range" id="opacity-range" name="opacity" min="0" max="100" value="10" step="10" oninput="paint.setOpacity(this.value)" onchange="paint.setOpacity(this.value)" >
       </section>
 
     </main>

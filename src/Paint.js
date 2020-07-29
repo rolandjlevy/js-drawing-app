@@ -1,14 +1,16 @@
 class Paint {
-  constructor({canvas, brushSize, blur}) {
+  constructor({canvas, brushSize, opacity, blur}) {
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.brushCursor = document.querySelector('.brush-cursor');
     this.brushSize = brushSize;
+    this.opacity = opacity;
     this.blur = blur;
     this.isDrawing = false;
     this.x = 0;
     this.y = 0;
     this.setBrushSize(brushSize);
+    this.setOpacity(opacity);
 
     ['mousedown', 'touchstart'].forEach(event => {
       this.canvas.addEventListener(event, evt => {
@@ -49,7 +51,7 @@ class Paint {
   }
   drawCircle(x1, y1, x2, y2) {
     this.context.fillStyle = colour;
-    this.context.globalAlpha = 0.05;
+    this.context.globalAlpha = this.opacity;
     this.context.beginPath();
     this.context.filter = `blur(${this.blur}px)`;
     this.context.arc(x1, y1, this.brushSize, 0, 2 * Math.PI);
@@ -60,5 +62,8 @@ class Paint {
     this.brushSize = n;
     this.brushCursor.classList = ['brush-cursor'];
     this.brushCursor.classList.add(`cursor-size-${n}`);
+  }
+  setOpacity(n) {
+    this.opacity = n / 250;
   }
 }

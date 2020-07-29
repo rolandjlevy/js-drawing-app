@@ -12,6 +12,11 @@ canvas#art-board {
   background-color: #fff;
 }
 
+.control {
+  color: white;
+  font-weight: strong;
+}
+
 .brushes {
   display: flex;
   flex-direction: row;
@@ -77,4 +82,13 @@ ul.colours > li {
 
 ul.colours > li:hover {
   opacity: 1;
+}
+
+.m-tb-20, .m-bt-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
 }

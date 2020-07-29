@@ -24,6 +24,6 @@ canvas.width = getComputedStyle(canvas).getPropertyValue('--width');
 canvas.height = getComputedStyle(canvas).getPropertyValue('--height');
 canvas.focus();
 
-const paint = new Paint({canvas, brushSize: 20, blur: 5});
+const paint = new Paint({canvas, brushSize: 20, opacity: 10, blur: 5});
 
-const input = new Input({canvas, brushSize: 20, blur: 5});
+// const input = new Input({canvas, brushSize: 20, blur: 5});
