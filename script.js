@@ -25,7 +25,8 @@ const opacity = new Opacity({value:50});
 const blurrer = new Blur({value:5});
 
 const paint = new Paint({
-  canvas: artBoard.canvas, 
+  canvas: artBoard.canvas,
+  context: artBoard.context, 
   brush,
   opacity,
   blurrer

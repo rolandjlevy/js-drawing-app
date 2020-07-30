@@ -1,7 +1,7 @@
 class Paint {
-  constructor({canvas, brush, opacity, blurrer}) {
+  constructor({canvas, context, brush, opacity, blurrer}) {
     this.canvas = canvas;
-    this.context = this.canvas.getContext('2d');
+    this.context = context;
     this.brush = brush;
     this.opacity = opacity;
     this.blur = blurrer;
@@ -54,8 +54,5 @@ class Paint {
     this.context.arc(x1, y1, this.brush.size, 0, 2 * Math.PI);
     this.context.fill();
     this.context.closePath();
-  }
-  clearAll() {
-    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
   }
 }
