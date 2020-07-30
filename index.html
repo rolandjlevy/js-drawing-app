@@ -30,7 +30,11 @@
 
       <section class="m-b-20">
         <label class="control" for="blur-range">BLUR</label>
-        <input type="range" id="blur-range" name="blur-control" min="0" max="10" value="5" step="1" oninput="blurer.setValue(this.value)" onchange="blurer.setValue(this.value)" >
+        <input type="range" id="blur-range" name="blur-control" min="0" max="10" value="5" step="1" oninput="blurrer.setValue(this.value)" onchange="blurrer.setValue(this.value)" >
+      </section>
+
+      <section class="m-b-20">
+        <button onclick="paint.clearAll()" >CLEAR</button>
       </section>
 
     </main>

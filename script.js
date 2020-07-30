@@ -22,12 +22,12 @@ colours.forEach(col => {
 const artBoard = new ArtBoard();
 const brush = new Brush({size:20});
 const opacity = new Opacity({value:50});
-const blurer = new Blur({value:5});
+const blurrer = new Blur({value:5});
 
 const paint = new Paint({
   canvas: artBoard.canvas, 
   brush,
   opacity,
-  blurer
+  blurrer
 });
 
