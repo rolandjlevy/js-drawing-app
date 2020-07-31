@@ -3,6 +3,8 @@
 
 ### Improvements
 + make the swatches radio buttons so they have an on/off state
++ look at scrolling issue in mobile view 
++ improve the layout and styling for the controls
 
 ### Done
 + add [touch events](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_touchmove2) so it's mobile friendly: 
