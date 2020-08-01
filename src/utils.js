@@ -17,6 +17,7 @@
 
   function toggleTools() {
     tools.classList.toggle('show');
+    // console.log(paint.isDrawing)
   }
 
 //});
