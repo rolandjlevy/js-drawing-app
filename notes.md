@@ -3,7 +3,7 @@
 
 ### Improvements
 + make the swatches radio buttons so they have an on/off state
-+ look at scrolling issue in mobile view 
++ look at scrolling issue in mobile view - make canvas resize to fit full width. Look at ResizeObserver object and see https://stackoverflow.com/questions/4288253/html5-canvas-100-width-height-of-viewport
 + improve the layout and styling for the controls
 
 ### Done

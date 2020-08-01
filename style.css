@@ -3,6 +3,35 @@ body {
   background-color: #333;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.tools-btn {
+  cursor: pointer;
+}
+
+.tools-wrapper {
+  padding: 20px;
+  margin: 20px 0 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f3f3f3;
+  display: none;
+  box-shadow: 0 15px 15px -5px #00000033;
+}
+
+.show {
+  display: initial;
+}
+
 canvas#art-board {
   --width: 560;
   --height: 360;
@@ -13,7 +42,7 @@ canvas#art-board {
 }
 
 .control {
-  color: white;
+  color: #000;
   font-weight: strong;
 }
 
@@ -23,12 +52,12 @@ canvas#art-board {
 }
 
 .brushes input[type="radio"] {
-  color: #fff;
+  color: #000;
 }
 
 .brushes label {
   margin-left: 10px;
-  color: #fff;
+  color: #000;
   cursor: pointer;
 }
 
@@ -54,14 +83,6 @@ canvas#art-board {
 
 canvas#art-board:focus {
   outline: none;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
 }
 
 ul.colours {

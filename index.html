@@ -7,42 +7,52 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <main class="container">
+
+    <article class="tools">
+      <button class="tools-btn" onclick="toggleTools()">Tools</button>
+      <main class="tools-wrapper">
+        <ul class="colours m-tb-20"></ul>
+
+        <section class="brushes m-b-20">
+          <label class="control">BRUSH SIZE:</label>
+          <label for="brush-10">Small</label>
+          <input type="radio" id="brush-10" name="brushsize" value="10" onclick="brush.setSize(10)" />
+          <label for="brush-20">Medium</label>
+          <input type="radio" id="brush-20" name="brushsize" value="20" onclick="brush.setSize(20)" checked />
+          <label for="brush-40">Large</label>
+          <input type="radio" id="brush-40" name="brushsize" value="40" onclick="brush.setSize(40)" />
+          <label for="brush-60">Extra large</label>
+          <input type="radio" id="brush-60" name="brushsize" value="60" onclick="brush.setSize(60)" />
+        </section>
+
+        <section class="m-b-20">
+          <label class="control" for="opacity-range">OPACITY</label>
+          <input type="range" id="opacity-range" name="opacity-control" min="5" max="100" value="50" step="1" oninput="opacity.setValue(this.value)" onchange="opacity.setValue(this.value)" >
+        </section>
+
+        <section class="m-b-20">
+          <label class="control" for="blur-range">BLUR</label>
+          <input type="range" id="blur-range" name="blur-control" min="0" max="10" value="5" step="1" oninput="blurrer.setValue(this.value)" onchange="blurrer.setValue(this.value)" >
+        </section>
+
+        <section class="m-b-20">
+          <button onclick="artBoard.clearAll()" >CLEAR</button>
+        </section>
+
+      </main>
+
+    </article>
+
+    <article class="container">
       <canvas id="art-board" class="brush-cursor" tabindex="1"></canvas>
-      <ul class="colours m-tb-20"></ul>
+    </article>
 
-      <section class="brushes m-b-20">
-        <label class="control">BRUSH SIZE:</label>
-        <label for="brush-10">Small</label>
-        <input type="radio" id="brush-10" name="brushsize" value="10" onclick="brush.setSize(10)" />
-        <label for="brush-20">Medium</label>
-        <input type="radio" id="brush-20" name="brushsize" value="20" onclick="brush.setSize(20)" checked />
-        <label for="brush-40">Large</label>
-        <input type="radio" id="brush-40" name="brushsize" value="40" onclick="brush.setSize(40)" />
-        <label for="brush-60">Extra large</label>
-        <input type="radio" id="brush-60" name="brushsize" value="60" onclick="brush.setSize(60)" />
-      </section>
-
-      <section class="m-b-20">
-        <label class="control" for="opacity-range">OPACITY</label>
-        <input type="range" id="opacity-range" name="opacity-control" min="5" max="100" value="50" step="1" oninput="opacity.setValue(this.value)" onchange="opacity.setValue(this.value)" >
-      </section>
-
-      <section class="m-b-20">
-        <label class="control" for="blur-range">BLUR</label>
-        <input type="range" id="blur-range" name="blur-control" min="0" max="10" value="5" step="1" oninput="blurrer.setValue(this.value)" onchange="blurrer.setValue(this.value)" >
-      </section>
-
-      <section class="m-b-20">
-        <button onclick="artBoard.clearAll()" >CLEAR</button>
-      </section>
-
-    </main>
     <script src="/src/ArtBoard.js"></script>
     <script src="/src/Brush.js"></script>
     <script src="/src/Opacity.js"></script>
     <script src="/src/Blur.js"></script>
     <script src="/src/Paint.js"></script>
+    <script src="/src/utils.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
