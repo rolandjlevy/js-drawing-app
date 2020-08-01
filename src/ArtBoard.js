@@ -6,6 +6,7 @@ class ArtBoard {
     this.canvas.width = getComputedStyle(this.canvas).getPropertyValue('--width');
     this.canvas.height = getComputedStyle(this.canvas).getPropertyValue('--height');
     this.canvas.focus();
+    this.canvas.style.opacity = '1';
     // window.addEventListener('resize', () => {
     //   this.canvas.width = this.windowSize().w;
     //   this.canvas.height = this.windowSize().h;

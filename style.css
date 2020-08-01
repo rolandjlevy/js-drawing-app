@@ -31,7 +31,7 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
   display: none;
   box-shadow: 0 15px 15px -5px #00000033;
   z-index: 10;
@@ -50,7 +50,8 @@ canvas#art-board {
   background-color: #fff;
   border: var(--border-width) solid grey;
   box-shadow: 0 0 30px 10px #000;
-  z-index: 5;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
 canvas#art-board:focus {
@@ -81,6 +82,46 @@ canvas#art-board:focus {
   cursor: pointer;
 }
 
+/*******************/
+/* Colour Swatches */
+/*******************/
+
+ul.swatches {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  padding: 0;
+}
+
+ul.swatches > li {
+  list-style: none;
+  margin: 0 3px;
+  display: none;
+}
+
+ul.swatches > li > label {
+  display: inline-block;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+ul.swatches > li > label:hover,
+ul.swatches > li > input:checked + label {
+  opacity: 1;
+  box-shadow: 0 2px 5px 1px #00000033;
+  transform: translateY(-1px);
+}
+
+ul.swatches > li > input {
+  display: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
 /******************/
 /* Custom cursors */
 /******************/
@@ -103,31 +144,6 @@ canvas#art-board:focus {
 .cursor-size-60 {
   --size: 60;
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="124" width="124" viewBox="0 0 62 62"><circle cx="31" cy="31" r="30" stroke="black" stroke-width="0.5" fill="none" /></svg>') var(--size) var(--size), auto;
-}
-
-/*******************/
-/* Colour Swatches */
-/*******************/
-
-ul.colours {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  padding: 0;
-}
-
-ul.colours > li {
-  list-style: none;
-  width: 20px;
-  height: 20px;
-  margin: 0 3px;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-ul.colours > li:hover {
-  opacity: 1;
-  box-shadow: 0 0 10px 2px #00000033;
 }
 
 /***********************/
