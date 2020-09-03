@@ -14,6 +14,7 @@ class ArtBoard {
   fillAll() {
     this.context.fillStyle = paint.currentColour;
     this.context.globalAlpha = 1;
+    this.context.filter = 'blur(0px)';
     this.context.fillRect(...this.getRect());
   }
   getRect() {

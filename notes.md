@@ -3,6 +3,7 @@
 
 ### Improvements
 + add CSS vars for cursor-sizes
++ improve mobile view
 + have a panel that shows selected colour, opacity, blur
 + look at scrolling issue in mobile view - make canvas resize to fit full width. Look at ResizeObserver object and see https://stackoverflow.com/questions/4288253/html5-canvas-100-width-height-of-viewport
 + bug: when tools has focus it activates drawing
