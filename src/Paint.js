@@ -1,10 +1,11 @@
 class Paint {
-  constructor({canvas, context, brush, opacity, blurrer}) {
+  constructor({canvas, context, brush, opacity, blurrer, colour}) {
     this.canvas = canvas;
     this.context = context;
     this.brush = brush;
     this.opacity = opacity;
     this.blur = blurrer;
+    this.colour = colour;
     this.isDrawing = false;
     this.x = 0;
     this.y = 0;
@@ -46,8 +47,11 @@ class Paint {
     const y = evt.touches ? e.clientY - e.target.offsetTop : e.offsetY;
     return {x, y};
   }
+  updateColour(colour) {
+    this.colour = colour;
+  }
   drawCircle(x1, y1) {
-    this.context.fillStyle = colour;
+    this.context.fillStyle = this.colour;
     this.context.globalAlpha = this.opacity.value;
     this.context.beginPath();
     this.context.filter = `blur(${this.blur.value}px)`;
