@@ -46,7 +46,7 @@ canvas#art-board {
   max-height: var(--height);
   background-color: #fff;
   border: var(--border-width) solid grey;
-  box-shadow: 0 0 20px 10px #000;
+  box-shadow: 0 0 20px 10px #00000099;
   opacity: 0;
   transition: all 0.5s ease;
 }
@@ -54,6 +54,16 @@ canvas#art-board {
 canvas#art-board:focus {
   outline: none;
 }
+
+/* @media (max-width: 800px) {
+  canvas#art-board {
+    --width: 200;
+    --height: 600;
+    max-width: var(--width);
+    max-height: var(--height);
+    transition: all 0.5s ease;
+  }
+} */
 
 section > .control {
   color: #fff;

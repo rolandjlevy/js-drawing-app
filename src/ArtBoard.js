@@ -9,12 +9,17 @@ class ArtBoard {
     this.canvas.style.opacity = '1';
   }
   clearAll() {
-    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+    this.context.clearRect(...this.getRect());
   }
   fillAll() {
     this.context.fillStyle = paint.currentColour;
     this.context.globalAlpha = 1;
-    this.context.fillRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+    this.context.fillRect(...this.getRect());
+  }
+  getRect() {
+    return [
+      0, 0, this.context.canvas.width, this.context.canvas.height
+    ];
   }
   windowSize() {
     const w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;

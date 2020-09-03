@@ -15,7 +15,7 @@
     <button class="tools-btn" onclick="toggleTools()"><i class="fas fa-angle-down  m-r-5"></i>Tools<i class="fas fa-cog m-l-5"></i></button>
 
     <article class="container">
-      <canvas id="art-board" class="brush-cursor" tabindex="1"></canvas>
+      <canvas id="art-board" width="800" height="600" class="brush-cursor" tabindex="1"></canvas>
     </article>
 
     <article class="tools">
@@ -54,7 +54,8 @@
 
         <section class="m-b-20">
           <button class="btn m-r-10" onclick="artBoard.clearAll()" >CLEAR CANVAS<i class="fas fa-times-circle m-l-5"></i></button>
-          <button class="btn" onclick="artBoard.fillAll()" >FILL CANVAS<i class="fas fa-tint m-l-5"></i></button>
+          <button class="btn m-r-10" onclick="artBoard.fillAll()" >FILL CANVAS<i class="fas fa-tint m-l-5"></i></button>
+          <button class="btn" onclick="toggleTools()">CLOSE<i class="fas fa-times m-l-5"></i></button>
         </section>
 
       </main>
