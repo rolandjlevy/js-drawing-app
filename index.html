@@ -3,12 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Paint with JS</title>
+    <title>Paint with JS</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Raleway:wght@500;700;900&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
 
-    <button class="btn tools-btn" onclick="toggleTools()">Tools</button>
+    <h3 class="align-center">Painter <i class="fas fa-paint-brush m-l-10"></i></h3>
+
+    <button class="tools-btn" onclick="toggleTools()"><i class="fas fa-angle-down  m-r-5"></i>Tools<i class="fas fa-cog m-l-5"></i></button>
 
     <article class="container">
       <canvas id="art-board" class="brush-cursor" tabindex="1"></canvas>
@@ -19,6 +23,7 @@
       <main class="tools-wrapper">
         
         <ul class="swatches m-tb-20">
+          <label class="control">COLOURS</label>
           <li class="col">
             <input type="radio" name="swatch" />
             <label></label>
@@ -37,19 +42,19 @@
           <input type="radio" id="brush-60" name="brushsize" value="60" onclick="brush.setSize(60)" />
         </section>
 
-        <section class="m-b-20">
+        <section class="opacity m-b-20">
           <label class="control" for="opacity-range">OPACITY</label>
           <input type="range" id="opacity-range" name="opacity-control" min="5" max="100" value="50" step="1" oninput="opacity.setValue(this.value)" onchange="opacity.setValue(this.value)" >
         </section>
 
-        <section class="m-b-20">
+        <section class="blur m-b-20">
           <label class="control" for="blur-range">BLUR</label>
           <input type="range" id="blur-range" name="blur-control" min="0" max="10" value="5" step="1" oninput="blurrer.setValue(this.value)" onchange="blurrer.setValue(this.value)" >
         </section>
 
         <section class="m-b-20">
-          <button class="btn m-r-10" onclick="artBoard.clearAll()" >CLEAR CANVAS &times;</button>
-          <button class="btn" onclick="artBoard.fillAll()" >FILL CANVAS</button>
+          <button class="btn m-r-10" onclick="artBoard.clearAll()" >CLEAR CANVAS<i class="fas fa-times-circle m-l-5"></i></button>
+          <button class="btn" onclick="artBoard.fillAll()" >FILL CANVAS<i class="fas fa-tint m-l-5"></i></button>
         </section>
 
       </main>

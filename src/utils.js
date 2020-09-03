@@ -1,10 +1,11 @@
 // document.addEventListener('DOMContentLoaded', (event) => {
 
-  const tools = document.querySelector('.tools-wrapper');
+  const toolsWrapper = document.querySelector('.tools-wrapper');
+  const toolsButton = document.querySelector('.tools-btn');
 
   function toggleTools() {
-    tools.classList.toggle('show');
-    // console.log(paint.isDrawing)
+    toolsWrapper.classList.toggle('show');
+    toolsButton.classList.toggle('show');
   }
 
 //});

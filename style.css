@@ -1,12 +1,31 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  background-color: #333;
-  overflow: hidden;
+:root {
+  --button-height: 30px;
+  --artboard-colour: #444;
+  --tools-padding: 20px;
 }
 
-:root {
-  --button-height: 20px;
+body {
+  margin: 30px;
+  padding: 0;
+  background-color: var(--artboard-colour);
+  overflow: hidden;
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+h3 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  background: linear-gradient(0deg, #ffd900, #ff7300, #ff0080, #8400ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  background-size: 150%;
 }
 
 .container {
@@ -15,33 +34,8 @@ html, body {
   flex-direction: column;
   justify-content: center;
   width: 100vw;
-  height: calc(100vh - var(--button-height));
+  height: calc(100vh - 220px);
   overflow: hidden;
-}
-
-.btn {
-  cursor: pointer;
-}
-
-.tools-btn {
-  height: var(--button-height);
-}
-
-.tools-wrapper {
-  padding: 20px;
-  margin: var(--button-height) 0 0;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #f0f0f0;
-  display: none;
-  box-shadow: 0 15px 15px -5px #00000033;
-  z-index: 10;
-}
-
-.show {
-  display: initial;
 }
 
 canvas#art-board {
@@ -52,7 +46,7 @@ canvas#art-board {
   max-height: var(--height);
   background-color: #fff;
   border: var(--border-width) solid grey;
-  box-shadow: 0 0 30px 10px #000;
+  box-shadow: 0 0 20px 10px #000;
   opacity: 0;
   transition: all 0.5s ease;
 }
@@ -61,9 +55,68 @@ canvas#art-board:focus {
   outline: none;
 }
 
-.control {
-  color: #000;
+section > .control {
+  color: #fff;
   font-weight: strong;
+}
+
+/*********/
+/* Tools */
+/*********/
+
+.tools-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: calc(155px) 0 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--artboard-colour);
+  box-shadow: 0 15px 15px -5px #00000033;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.tools-wrapper.show {
+  opacity: 1;
+  pointer-events: initial;
+  transition: all 0.2s ease;
+}
+
+.tools-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: var(--button-height);
+  cursor: pointer;
+  background-color: var(--artboard-colour);
+  color: #fff;
+  border: 0;
+  outline: 0;
+  transition: all 0.2s ease;
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.tools-btn:hover {
+  opacity: 1;
+}
+
+.tools-btn > .fa-angle-down {
+  transform: rotate(180deg);
+  transition: all 0.2s ease;
+}
+
+.tools-btn.show > .fa-angle-down {
+  transform: rotate(0deg);
+  transition: all 0.2s ease;
 }
 
 /***********/
@@ -81,7 +134,7 @@ canvas#art-board:focus {
 
 .brushes label[for*="brush"] {
   margin-left: 10px;
-  color: #000;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -94,6 +147,7 @@ ul.swatches {
   align-items: flex-start;
   flex-direction: row;
   padding: 0;
+  margin: 10px 0;
 }
 
 ul.swatches > li {
@@ -107,8 +161,8 @@ ul.swatches > li > label {
   cursor: pointer;
   width: 20px;
   height: 20px;
-  opacity: 0.8;
-  border-radius: 2px;
+  opacity: 1;
+  border-radius: 5px;
   transition: all 0.1s ease;
 }
 
@@ -127,6 +181,33 @@ ul.swatches > li > input {
   height: 0;
   margin: 0;
   padding: 0;
+}
+
+/***********/
+/* Buttons */
+/***********/
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: 0;
+  font-weight: 700;
+  display: inline-block;
+  color: #000;
+}
+
+.btn:hover {
+  background-color: #fff;
+  box-shadow: 0 5px 10px -5px #000000;
+  transition: all 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 /******************/
@@ -153,6 +234,16 @@ ul.swatches > li > input {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="124" width="124" viewBox="0 0 62 62"><circle cx="31" cy="31" r="30" stroke="black" stroke-width="0.5" fill="none" /></svg>') var(--size) var(--size), auto;
 }
 
+/**********/
+/* Layout */
+/**********/
+
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /***********************/
 /* margins and padding */
 /***********************/
@@ -168,6 +259,14 @@ ul.swatches > li > input {
 
 .m-l-10 {
   margin-left: 10px;
+}
+
+.m-l-5 {
+  margin-left: 5px;
+}
+
+.m-r-5 {
+  margin-right: 5px;
 }
 
 .m-r-10 {
