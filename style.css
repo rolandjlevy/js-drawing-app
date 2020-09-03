@@ -19,8 +19,11 @@ html, body {
   overflow: hidden;
 }
 
-.tools-btn {
+.btn {
   cursor: pointer;
+}
+
+.tools-btn {
   height: var(--button-height);
 }
 
@@ -165,4 +168,8 @@ ul.swatches > li > input {
 
 .m-l-10 {
   margin-left: 10px;
+}
+
+.m-r-10 {
+  margin-right: 10px;
 }

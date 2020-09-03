@@ -8,7 +8,7 @@
   </head>
   <body>
 
-    <button class="tools-btn" onclick="toggleTools()">Tools</button>
+    <button class="btn tools-btn" onclick="toggleTools()">Tools</button>
 
     <article class="container">
       <canvas id="art-board" class="brush-cursor" tabindex="1"></canvas>
@@ -48,7 +48,8 @@
         </section>
 
         <section class="m-b-20">
-          <button onclick="artBoard.clearAll()" >CLEAR</button>
+          <button class="btn m-r-10" onclick="artBoard.clearAll()" >CLEAR CANVAS &times;</button>
+          <button class="btn" onclick="artBoard.fillAll()" >FILL CANVAS</button>
         </section>
 
       </main>

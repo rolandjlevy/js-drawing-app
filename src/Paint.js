@@ -9,7 +9,9 @@ class Paint {
     this.isDrawing = false;
     this.x = 0;
     this.y = 0;
-
+    this.initEvents();
+  }
+  initEvents() {
     ['mousedown', 'touchstart'].forEach(event => {
       this.canvas.addEventListener(event, evt => {
         const offset = this.getOffsetXY(evt);
@@ -47,8 +49,11 @@ class Paint {
     const y = evt.touches ? e.clientY - e.target.offsetTop : e.offsetY;
     return {x, y};
   }
-  updateColour(colour) {
+  set currentColour(colour) {
     this.colour = colour;
+  }
+  get currentColour() {
+    return this.colour;
   }
   drawCircle(x1, y1) {
     this.context.fillStyle = this.colour;

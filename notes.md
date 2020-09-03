@@ -22,3 +22,15 @@
 
 ### SVG cursor
 + [from stackoverflow](https://stackoverflow.com/questions/46017334/how-to-reference-inline-svg-as-cursor-in-css-style)
+
+### ideas
+
+- inside Artboard constructor:
+
+```js
+window.addEventListener('resize', () => {
+  this.canvas.width = this.windowSize().w;
+  this.canvas.height = this.windowSize().h;
+  console.log(this.canvas.width, this.canvas.height);  
+}, false);
+```

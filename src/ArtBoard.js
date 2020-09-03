@@ -7,14 +7,14 @@ class ArtBoard {
     this.canvas.height = getComputedStyle(this.canvas).getPropertyValue('--height');
     this.canvas.focus();
     this.canvas.style.opacity = '1';
-    // window.addEventListener('resize', () => {
-    //   this.canvas.width = this.windowSize().w;
-    //   this.canvas.height = this.windowSize().h;
-    //   console.log(this.canvas.width, this.canvas.height);  
-    // }, false);
   }
   clearAll() {
     this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+  }
+  fillAll() {
+    this.context.fillStyle = paint.currentColour;
+    this.context.globalAlpha = 1;
+    this.context.fillRect(0, 0, this.context.canvas.width, this.context.canvas.height);
   }
   windowSize() {
     const w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;

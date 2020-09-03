@@ -19,7 +19,7 @@ class Swatches {
       label.style.background = col;
       label.addEventListener('click', e => {
         this.colour = e.target.classList.value;
-        paint.updateColour(this.colour);
+        paint.currentColour = this.colour;
       });
       if (col === this.colour) input.checked = true;
       this.swatchesList.appendChild(clone);
