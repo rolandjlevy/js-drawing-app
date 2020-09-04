@@ -1,7 +1,7 @@
 class Swatches {
   constructor({initColour}) {
     this.colour = initColour;
-    this.colours = ["white", "grey", "black", "purple", "red", "orange", "yellow", "greenyellow", "green", "turquoise", "blue"];
+    this.colours = ["white", "silver", "grey", "#555", "#333", "black", "indigo", "#5D0081", "purple", "darkred", "red", "orange", "yellow", "greenyellow", "limegreen", "green", "teal", "turquoise", "dodgerblue", "blue"];
     this.swatchesList = document.querySelector('ul.swatches');
     this.li = document.querySelector('ul.swatches > li');
     this.generateSwatches();
